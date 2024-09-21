@@ -1,0 +1,16 @@
+services:
+  postgres:
+    platform: linux/x86_64
+    image: postgres:16
+    container_name: luminai-postgres
+    environment:
+      POSTGRES_USER: brot-shop
+      POSTGRES_PASSWORD: brot-shop
+      POSTGRES_DB: brot-shop
+    ports:
+      - "5432:5432"
+    volumes:
+        - postgres-data:/var/lib/postgresql/data
+
+volumes:
+    postgres-data:
