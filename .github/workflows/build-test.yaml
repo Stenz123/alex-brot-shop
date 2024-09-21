@@ -13,7 +13,7 @@ jobs:
           POSTGRES_PASSWORD: quarkus
           POSTGRES_DB: quarkus_test_db
         options: >-
-          --health-cmd "pg_isready -U ${{ secrets.POSTGRES_USER }}" 
+          --health-cmd "pg_isready -U quarkus
           --health-interval 10s 
           --health-timeout 5s 
           --health-retries 5
