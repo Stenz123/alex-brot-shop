@@ -55,13 +55,18 @@ jobs:
   build-and-push-image:
     needs: build
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/v')
+    #if: startsWith(github.ref, 'refs/tags/v')
     steps:
       - name: Download Build Artifacts
         uses: actions/download-artifact@v4
         with:
           name: build-artifacts
           path: ./build/quarkus-app
+
+      - name: debug
+        run: |
+          ls -la ./build/quarkus-app
+          ls
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -77,6 +82,11 @@ jobs:
 
       - name: Checkout Code
         uses: actions/checkout@v4
+
+      - name: debug
+        run: |
+          ls -la ./build/quarkus-app
+          ls
 
       - name: Build and push image
         uses: docker/build-push-action@v6
