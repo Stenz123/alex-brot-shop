@@ -112,12 +112,15 @@ jobs:
 
       - name: Push changes
         run: |
-          git push origin HEAD:automated-branch
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git push https://${{ secrets.K3S_REPO_PAT }}@github.com/stenz123/k3s.git HEAD:automated-branch
+
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.K3S_REPO_PAT }}
           repository: stenz123/k3s
           head: automated-branch
           base: main
