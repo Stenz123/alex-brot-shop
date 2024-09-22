@@ -47,6 +47,7 @@ jobs:
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
+        if: startsWith(github.ref, 'refs/tags/v')
         with:
           name: build-artifacts
           path: build/libs/
@@ -72,6 +73,9 @@ jobs:
       - name: Extract Tag
         id: extract_tag
         run: echo "TAG=${{ github.ref }}" | sed 's/refs\/tags\///g' >> $GITHUB_ENV
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
       - name: Build and push image
         uses: docker/build-push-action@v6
