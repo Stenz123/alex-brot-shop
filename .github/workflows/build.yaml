@@ -113,7 +113,6 @@ jobs:
 
       - name: Push changes
         run: |
-          cd target-repo
           git push origin HEAD:automated-branch
 
       - name: Create Pull Request
