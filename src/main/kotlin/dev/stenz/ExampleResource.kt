@@ -10,5 +10,5 @@ class ExampleResource {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    fun hello() = "Hello RESTEasy"
+    fun hello() = "Hello RESTEasy this is now version v0.0.3"
 }
