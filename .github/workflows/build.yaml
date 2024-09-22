@@ -98,11 +98,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: stenz123/k3s
-          path: alex-brot
 
       - name: Modify file
         run: |
-          sed -i 's|\(image: ghcr.io/alex-brot/alex-brot-backend:\)v[0-9]\+\.[0-9]\+\.[0-9]\+|\1${{ env.TAG }}|' ./prod/alex-brot-deployment.yaml
+          sed -i 's|\(image: ghcr.io/alex-brot/alex-brot-backend:\)v[0-9]\+\.[0-9]\+\.[0-9]\+|\1${{ env.TAG }}|' ./alex-brot/prod/alex-brot-deployment.yaml
 
       - name: Commit changes
         run: |
