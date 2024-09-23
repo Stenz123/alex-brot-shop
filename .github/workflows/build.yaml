@@ -3,8 +3,7 @@ on: [push, workflow_dispatch]
 
 jobs:
   build:
-    # Only when there is not v in the tag
-    if: !startsWith(github.ref, 'refs/tags/v')
+    if: "!startsWith(github.ref, 'refs/tags/v')"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
