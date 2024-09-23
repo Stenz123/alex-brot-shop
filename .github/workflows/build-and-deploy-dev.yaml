@@ -67,7 +67,7 @@ jobs:
 
       - name: Modify file
         run: |
-          sed -i 's|\(image: ghcr.io/alex-brot/alex-brot-backend:\).*|\1${{ env.TAG }}|' ./alex-brot/overlays/dev/kustomization.yaml
+          sed -i 's|\(image: ghcr.io/alex-brot/alex-brot-backend\\:\).*|\1${{ env.TAG }}|' ./alex-brot/overlays/dev/kustomization.yaml
 
       - name: Commit and push changes
         run: |
