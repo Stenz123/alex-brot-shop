@@ -7,7 +7,7 @@ on:
 
 env:
   GITHUB_USER: ${{ github.repository_owner }}
-  IMAGE_NAME: "alex-brot-backend"
+  IMAGE_NAME: "dev-alex-brot-backend"
   REGISTRY: "ghcr.io"
 
 permissions:
@@ -67,7 +67,7 @@ jobs:
 
       - name: Modify file
         run: |
-          sed -i 's|\(image: ghcr.io/alex-brot/alex-brot-backend:\).*|\1dev-${{ github.run_number }}|' ./alex-brot/overlays/dev/kustomization.yaml
+          sed -i 's|\(image: ghcr.io/alex-brot/${{ env.IMAGE_NAME }}:\).*|\1dev-${{ github.run_number }}|' ./alex-brot/overlays/dev/kustomization.yaml
 
       - name: Commit and push changes
         run: |
